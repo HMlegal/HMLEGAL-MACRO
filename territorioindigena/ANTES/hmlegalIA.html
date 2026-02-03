@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM Legal IA – Asistentes Jurídicos Inteligentes</title>
+    <meta name="description" content="Acceso a asistentes de Inteligencia Artificial especializados en Derecho Indígena, supervisados por HM Legal.">
+    <meta name="robots" content="noindex, nofollow"> <!-- Página interna de herramienta -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hmblue: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                        },
+                        hmgold: {
+                            500: '#d97706',
+                            600: '#b45309',
+                        },
+                        hmgray: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hidden-visually { display: none; visibility: hidden; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- HEADER SIMPLIFICADO -->
+    <header class="bg-white border-b border-slate-200 py-4">
+        <div class="max-w-4xl mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col group">
+                <span class="text-xl font-serif font-bold text-hmblue-900 tracking-tight group-hover:text-hmgold-600 transition">
+                    TerritorioIndigena<span class="text-hmgold-500">.cl</span>
+                </span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-500 font-semibold">Filial de HM Legal Ltda.</span>
+            </a>
+            <a href="index.html" class="text-sm text-slate-500 hover:text-hmblue-900"><i class="fas fa-arrow-left mr-1"></i> Volver al Inicio</a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow py-12 px-4">
+        <div class="max-w-3xl mx-auto">
+            
+            <!-- Título y Descripción -->
+            <div class="text-center mb-10">
+                <div class="inline-block bg-hmblue-900 text-white p-4 rounded-full mb-4 shadow-lg">
+                    <i class="fas fa-brain text-3xl"></i>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-serif font-bold text-hmblue-900 mb-4">Asistente Jurídico IA</h1>
+                <p class="text-slate-600 text-lg">
+                    Acceda a nuestros agentes de Inteligencia Artificial especializados en Derecho Indígena y Territorial.
+                    <br><span class="text-sm text-slate-500">Supervisados por HM Legal Ltda.</span>
+                </p>
+            </div>
+
+            <!-- PASO 1: FORMULARIO DE ACCESO (GATEKEEPER) -->
+            <div id="access-panel" class="bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-hmblue-900 p-4 text-white text-center">
+                    <h2 class="font-bold tracking-wide text-sm uppercase">Registro de Acceso Requerido</h2>
+                </div>
+                
+                <form id="iaAccessForm" onsubmit="unlockIA(event)" class="p-8 space-y-6">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Nombre Completo</label>
+                            <input type="text" id="ia_nombre" required class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-hmgold-500 focus:ring-1 focus:ring-hmgold-500" placeholder="Su nombre">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Correo Electrónico</label>
+                            <input type="email" id="ia_email" required class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-hmgold-500 focus:ring-1 focus:ring-hmgold-500" placeholder="su@correo.com">
+                        </div>
+                    </div>
+
+                    <!-- Captcha Simple -->
+                    <input type="text" name="website_url" class="hidden-visually" tabindex="-1" autocomplete="off">
+                    <div class="flex items-center gap-3 bg-slate-50 px-4 py-2 rounded border border-slate-200 w-fit">
+                        <input type="checkbox" id="captcha-check" required class="w-4 h-4 text-hmblue-900 rounded border-slate-300 focus:ring-hmblue-900">
+                        <label for="captcha-check" class="text-xs text-slate-600 select-none">No soy un robot</label>
+                    </div>
+
+                    <!-- Términos y Condiciones Legales -->
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-sm text-slate-600">
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="terms-check" required class="mt-1 w-5 h-5 text-hmblue-900 rounded border-slate-300 focus:ring-hmblue-900">
+                            <label for="terms-check" class="leading-relaxed">
+                                <strong>Acepto los Términos de Uso:</strong> Entiendo que estos chats son agentes de Inteligencia Artificial (IA) desarrollados para materias de Derecho Indígena y supervisados por HM Legal. Reconozco que las respuestas generadas <strong>son solo una guía referencial y NO reemplazan en forma alguna la asesoría profesional de un abogado</strong> ni constituyen una opinión legal vinculante.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-hmgold-500 hover:bg-hmgold-600 text-white font-bold rounded-lg shadow transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                        <span>Ingresar a los Asistentes</span> <i class="fas fa-lock-open"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- PASO 2: PANEL DE ASISTENTES (OCULTO INICIALMENTE) -->
+            <div id="assistants-panel" class="hidden space-y-6 fade-in">
+                
+                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded flex items-center gap-3 mb-6">
+                    <i class="fas fa-check-circle text-green-600"></i>
+                    <div>
+                        <p class="font-bold text-sm">Acceso concedido.</p>
+                        <p class="text-xs">Se ha notificado su ingreso al equipo de HM Legal.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-serif font-bold text-hmblue-900 text-center mb-6">Seleccione su Plataforma</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Opción CHATGPT -->
+                    <a href="https://chatgpt.com/g/g-lIgSNJuC4-hm-legal-derecho-indigena-territorioindigena-cl" target="_blank" class="block bg-white p-6 rounded-xl shadow-md border-2 border-transparent hover:border-[#74aa9c] hover:shadow-xl transition group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#74aa9c] text-white text-[10px] font-bold px-2 py-1 rounded-bl">RECOMENDADO</div>
+                        <div class="flex items-center justify-center w-16 h-16 bg-[#74aa9c]/10 text-[#74aa9c] rounded-full mb-4 mx-auto group-hover:scale-110 transition">
+                            <i class="fas fa-bolt text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 text-center mb-2">GPT HM Legal</h3>
+                        <p class="text-sm text-slate-500 text-center mb-4">Basado en OpenAI. Especializado en análisis de documentos y razonamiento jurídico complejo.</p>
+                        <div class="text-center text-[#74aa9c] font-bold text-sm group-hover:underline">Iniciar Chat <i class="fas fa-external-link-alt ml-1"></i></div>
+                    </a>
+
+                    <!-- Opción GEMINI -->
+                    <a href="https://gemini.google.com/gem/8c73c7dc64d2" target="_blank" class="block bg-white p-6 rounded-xl shadow-md border-2 border-transparent hover:border-[#4E86F6] hover:shadow-xl transition group relative overflow-hidden">
+                        <div class="flex items-center justify-center w-16 h-16 bg-[#4E86F6]/10 text-[#4E86F6] rounded-full mb-4 mx-auto group-hover:scale-110 transition">
+                            <i class="fas fa-star text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 text-center mb-2">Gemini Pro Legal</h3>
+                        <p class="text-sm text-slate-500 text-center mb-4">Basado en Google. Ideal para búsqueda de datos actualizados y redacción creativa.</p>
+                        <div class="text-center text-[#4E86F6] font-bold text-sm group-hover:underline">Iniciar Chat <i class="fas fa-external-link-alt ml-1"></i></div>
+                    </a>
+
+                </div>
+
+                <div class="mt-8 p-4 bg-slate-100 rounded text-center text-xs text-slate-500">
+                    <p>Al utilizar estas herramientas, sus consultas pueden ser procesadas por OpenAI o Google según sus respectivas políticas de privacidad.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER SIMPLE -->
+    <footer class="bg-hmblue-900 text-slate-400 py-6 text-center text-xs">
+        <p>&copy; 2025 HM Legal Ltda. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function unlockIA(e) {
+            e.preventDefault();
+            
+            // Obtener datos
+            const nombre = document.getElementById('ia_nombre').value;
+            const email = document.getElementById('ia_email').value;
+            
+            // Simular envío de notificación al abogado (mailto oculto o fetch si hubiera backend)
+            // Aquí usamos mailto para cumplir con el requisito de notificar procedencia
+            const subject = "Notificación: Nuevo Usuario en HM Legal IA";
+            const body = `Se ha registrado un nuevo acceso al módulo de IA:\n\n` +
+                         `Nombre: ${nombre}\n` +
+                         `Email: ${email}\n` +
+                         `Procedencia: /hmlegalIA (Asistente Virtual)\n` +
+                         `Aceptó Términos: Sí`;
+            
+            // En un entorno real con backend, aquí haríamos un POST. 
+            // Como es estático, abrimos el mailto en una ventana oculta/rápida o simplemente procedemos
+            // Para UX fluida, solo simularemos el envío visualmente, pero podríamos abrir el mailto:
+            
+            window.location.href = `mailto:contacto@hmlegal.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Ocultar formulario y mostrar panel
+            document.getElementById('access-panel').classList.add('hidden');
+            document.getElementById('assistants-panel').classList.remove('hidden');
+            
+            // Scroll suave hacia arriba
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
